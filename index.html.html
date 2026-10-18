@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100e25">
+<title>For My Sheero 💗</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ffb8d0;
+  --lav: #d6c4ff;
+  --white: #fff6fb;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #302449 0%, #17152f 45%, #0b1022 100%);
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#stars,
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1.5); }
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: var(--pink);
+  animation: floatUp linear forwards;
+  opacity: .75;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 650px);
+  margin: auto;
+  text-align: center;
+  padding: 55px 0 45px;
+}
+
+.eyebrow {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--lav);
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(43px, 10vw, 76px);
+  line-height: 1.1;
+  font-weight: normal;
+  color: var(--pink);
+  text-shadow: 0 0 35px #ff9ec955;
+}
+
+h1 span {
+  display: block;
+  font-style: italic;
+  color: #fff0f7;
+  font-size: .66em;
+  margin-top: 9px;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #e2d9f1;
+  margin: 22px auto;
+  max-width: 430px;
+}
+
+.glow {
+  width: 100px;
+  height: 100px;
+  margin: 28px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffffff08;
+  border: 1px solid #ffc6e044;
+  box-shadow: 0 0 45px #ff9fc522;
+  font-size: 43px;
+  animation: breathe 3s infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 0 60px #ff9fc544;
+  }
+}
+
+.btn {
+  border: 1px solid #ffbad5aa;
+  background: linear-gradient(135deg, #f5b6d0, #d9c4ff);
+  color: #24142d;
+  padding: 15px 25px;
+  border-radius: 40px;
+  font-size: 14px;
+  box-shadow: 0 8px 30px #d7a4ff22;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px #d7a4ff44;
+}
+
+.section {
+  display: none;
+  animation: appear .8s ease both;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.line {
+  width: 65px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink), transparent);
+  margin: 32px auto;
+}
+
+h2 {
+  font-size: clamp(29px, 7vw, 43px);
+  font-weight: normal;
+  color: var(--pink);
+  line-height: 1.3;
+}
+
+.message {
+  font-size: 17px;
+  line-height: 2;
+  color: #eee5f5;
+  margin: 24px auto;
+  max-width: 510px;
+  white-space: pre-line;
+}
+
+.cake {
+  font-size: 76px;
+  margin: 25px auto 10px;
+  filter: drop-shadow(0 0 18px #ffb4d055);
+  animation: breathe 3s infinite;
+}
+
+.letter {
+  margin: 28px auto;
+  padding: 25px 23px;
+  border: 1px solid #ffbad533;
+  background: #ffffff08;
+  border-radius: 20px;
+  text-align: left;
+  line-height: 2;
+  font-size: 16px;
+  color: #f2e7f2;
+  box-shadow: 0 15px 60px #0002;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+  color: var(--pink);
+  margin-top: 20px;
+}
+
+.small {
+  font: 12px Arial, sans-serif;
+  letter-spacing: 1px;
+  color: #bcb0d2;
+  margin-top: 25px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Confession buttons */
+
+.choice-area {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  min-height: 120px;
+  margin: 25px auto;
+  max-width: 100%;
+}
+
+.no-btn {
+  background: #ffffff12;
+  color: #fff0f7;
+  border: 1px solid #ffbad566;
+  box-shadow: none;
+  z-index: 2;
+  touch-action: manipulation;
+}
+
+.no-btn.moving {
+  position: absolute;
+  transition: left .18s ease, top .18s ease;
+}
+
+.no-btn:disabled {
+  cursor: default;
+  opacity: .85;
+  transform: none;
+}
+
+#noMessage {
+  min-height: 28px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 15px 30px;
+  color: #a89dbf;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 420px) {
+  main {
+    padding-top: 40px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .letter {
+    padding: 20px 17px;
+  }
+
+  .choice-area {
+    gap: 10px;
+  }
+
+  .choice-area .btn {
+    padding: 13px 17px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+<div class="hearts" id="hearts"></div>
+
+<main>
+
+  <!-- PAGE 1: WELCOME -->
+
+  <section class="section active" id="welcome">
+    <p class="eyebrow">A little something, just for you</p>
+
+    <h1>
+      Happy Birthday
+      <span>my Sheero ♡</span>
+    </h1>
+
+    <div class="glow">💌</div>
+
+    <p class="subtitle">
+      Some people make ordinary days feel a little more beautiful.
+      Today, this little corner of the internet belongs to one of them.
+    </p>
+
+    <button class="btn" onclick="showSection('birthday')">
+      Open your surprise ✨
+    </button>
+
+    <p class="small">MADE WITH A LITTLE EXTRA LOVE</p>
+  </section>
+
+
+  <!-- PAGE 2: BIRTHDAY WISH -->
+
+  <section class="section" id="birthday">
+    <p class="eyebrow">Today is all about you</p>
+
+    <div class="cake">🎂</div>
+
+    <h2>Happy Birthday,<br>Shagun! 💗</h2>
+
+    <div class="line"></div>
+
+    <p class="message">Dear Sheero,
+
+I hope this new chapter of your life brings you the kind of happiness that stays, the kind of laughter that makes your cheeks hurt, and a thousand little reasons to smile.
+
+May your wishes find their way to you, may your heart feel lighter, and may life surprise you in the sweetest ways.
+
+You deserve so many beautiful things. Never forget that. 🌷</p>
+
+    <button class="btn" onclick="showSection('letter')">
+      One more little thing… 💌
+    </button>
+  </section>
+
+
+  <!-- PAGE 3: PERSONAL LETTER -->
+
+  <section class="section" id="letter">
+    <p class="eyebrow">Something from my heart</p>
+
+    <h2>A little secret 🤍</h2>
+
+    <div class="letter">
+      Dear Sheero,<br><br>
+
+      There is something lovely about the way certain people slowly
+      become a bright part of your days without even trying. Somehow,
+      a small conversation, a silly moment, or just seeing your name
+      can make an ordinary day feel different.<br><br>
+
+      You have that kind of magic, Shagun. And maybe I don't always
+      say it, but I'm genuinely glad that I got to know you.<br><br>
+
+      On your birthday, I hope you feel appreciated, cared for, and
+      reminded of how special you are. Keep being your wonderfully
+      unique self. The world needs more smiles like yours. 💗<br><br>
+
+      And if this message made you smile even a little, then my little
+      surprise has done its job.
+
+      <div class="signature">
+        With a little extra warmth,<br>
+        someone who thinks you're special ♡
+      </div>
+    </div>
+
+    <button class="btn" onclick="showSection('confession')">
+      There's something I want to tell you… 💗
+    </button>
+  </section>
+
+
+  <!-- PAGE 4: CONFESSION -->
+
+  <section class="section" id="confession">
+    <p class="eyebrow">One little question, Sheero</p>
+
+    <div class="glow">💗</div>
+
+    <h2>Can I tell you<br>something? 🥹</h2>
+
+    <div class="line"></div>
+
+    <p class="message">
+      I know you already know my feelings,
+      but I wanted to confess this again...
+
+      You're really special to me, Shagun.
+      Somewhere along the way, you became
+      someone who makes my days a little
+      brighter.
+
+      And the truth is...
+
+      <span style="color:#ffb8d0;font-size:23px">
+        I really like you. ❤️
+      </span>
+
+      So, Sheero, I have just one question...
+    </p>
+
+    <h2 style="font-size:30px;margin:24px 0">
+      Do you like me too? 💌
+    </h2>
+
+    <div class="choice-area" id="choiceArea">
+
+      <button class="btn" onclick="showSection('final')">
+        Yes! 💗
+      </button>
+
+      <button
+        class="btn no-btn"
+        id="noBtn"
+        onclick="handleNo()"
+        onpointerenter="moveNo(event)"
+        ontouchstart="moveNo(event)">
+        No, I don't care 🙈
+      </button>
+
+    </div>
+
+    <p class="small" id="noMessage">
+      Choose honestly, Sheero… 🤍
+    </p>
+  </section>
+
+
+  <!-- PAGE 5: FINAL SURPRISE -->
+
+  <section class="section" id="final">
+    <div class="glow">🌙</div>
+
+    <p class="eyebrow">One last wish</p>
+
+    <h2>Stay magical,<br>Sheero. ✨</h2>
+
+    <p class="message">
+      May this year be gentle with your heart, generous with its joy,
+      and full of moments you'll want to remember forever.
+
+      Keep smiling, keep dreaming, and never stop being you.
+
+      Happy Birthday once again, Shagun. 💗
+    </p>
+
+    <div class="line"></div>
+
+    <p style="font-size:25px;color:#ffc2d9">
+      You deserve the sweetest things. ♡
+    </p>
+
+    <p class="small">
+      THIS LITTLE SURPRISE WAS MADE JUST FOR YOU
+    </p>
+
+    <br>
+
+    <button class="btn" onclick="makeConfetti()">
+      Send you some birthday magic 🎉
+    </button>
+
+    <p id="ending" class="message hidden">
+      ✨ 💗 ✨<br>
+      Consider this your little shower of happiness!
+    </p>
+
+    <br>
+
+    <button
+      class="btn"
+      onclick="showSection('welcome')"
+      style="margin-top:10px">
+      Read it again ↺
+    </button>
+  </section>
+
+</main>
+
+<footer>
+  A LITTLE BIRTHDAY PAGE FOR SHAGUN · MADE WITH ♡
+</footer>
+
+
+<script>
+/* CREATE THE STARRY NIGHT SKY */
+
+const stars = document.getElementById('stars');
+
+for (let i = 0; i < 95; i++) {
+  const star = document.createElement('span');
+
+  star.className = 'star';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDelay = Math.random() * 3 + 's';
+  star.style.opacity = Math.random();
+
+  stars.appendChild(star);
+}
+
+
+/* FLOATING HEARTS */
+
+function floatHeart() {
+  const heart = document.createElement('span');
+
+  heart.className = 'heart';
+  heart.textContent = ['♡', '♥', '✧', '💗'][
+    Math.floor(Math.random() * 4)
+  ];
+
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.fontSize = (12 + Math.random() * 19) + 'px';
+  heart.style.animationDuration = (7 + Math.random() * 7) + 's';
+
+  document.getElementById('hearts').appendChild(heart);
+
+  setTimeout(() => heart.remove(), 14500);
+}
+
+setInterval(floatHeart, 650);
+
+
+/* SWITCH BETWEEN PAGES */
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+  for (let i = 0; i < 8; i++) {
+    setTimeout(floatHeart, i * 100);
+  }
+}
+
+
+/* PLAYFUL NO BUTTON */
+
+let noAttempts = 0;
+
+function moveNo(event) {
+  const button = document.getElementById('noBtn');
+
+  // After five dodges, the No button stays available.
+  if (noAttempts >= 5 || button.disabled) {
+    return;
+  }
+
+  // Prevent a touch from immediately triggering a click.
+  if (event && event.cancelable) {
+    event.preventDefault();
+  }
+
+  const area = document.getElementById('choiceArea');
+
+  const maxX = Math.max(
+    0,
+    area.clientWidth - button.offsetWidth
+  );
+
+  const maxY = Math.max(
+    0,
+    area.clientHeight - button.offsetHeight
+  );
+
+  button.classList.add('moving');
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  button.style.left = x + 'px';
+  button.style.top = y + 'px';
+
+  noAttempts++;
+
+  document.getElementById('noMessage').textContent =
+    noAttempts >= 5
+      ? "Okay, Sheero, your choice is yours. 🤍"
+      : "Hehe, that button is shy! 🙈💗";
+}
+
+
+/* IF SHE CHOOSES NO */
+
+function handleNo() {
+  const button = document.getElementById('noBtn');
+
+  document.getElementById('noMessage').textContent =
+    "It's okay, Sheero. 🤍 Your honesty matters, and I still hope you have the most beautiful birthday. 💗";
+
+  button.disabled = true;
+  button.textContent = 'You chose No 🤍';
+
+  button.style.left = '50%';
+  button.style.top = '50%';
+  button.style.transform = 'translate(-50%, -50%)';
+}
+
+
+/* BIRTHDAY CONFETTI EFFECT */
+
+function makeConfetti() {
+  const symbols = ['💗', '✨', '🌸', '♡', '🎉'];
+
+  for (let i = 0; i < 35; i++) {
+    setTimeout(() => {
+      const heart = document.createElement('span');
+
+      heart.className = 'heart';
+      heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.fontSize = (18 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 4) + 's';
+
+      document.getElementById('hearts').appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7500);
+    }, i * 60);
+  }
+
+  document.getElementById('ending').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
